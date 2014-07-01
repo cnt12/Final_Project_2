@@ -11,14 +11,8 @@ import java.net.URL;
 
 public class OpenData {
 
-	public static void main(String args[])throws IOException {
 		
-		while(true)
-		parse_teacher();
-		
-	}
-	
-	 public static void parse_teacher()throws IOException{
+	 public  void parse_teacher()throws IOException{
 
 		 
 		String input;
@@ -50,5 +44,16 @@ public class OpenData {
 			System.out.println("找不到與 "+mt+" 的相關資料");
 		System.out.println("-----------------");
 	}
+	 
+	 public static void main(String args[])throws IOException {
+			
+			OpenData op = new OpenData();
+			
+		    while(true)
+			op.parse_teacher();
+			
+		}
 
+	 
 }
+
