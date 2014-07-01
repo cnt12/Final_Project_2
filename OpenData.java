@@ -13,18 +13,20 @@ public class OpenData {
 
 	public static void main(String args[])throws IOException {
 		
-		String str1;
-		System.out.println("請輸入你要查詢的課程老師名稱");
-		Scanner sc = new Scanner(System.in);
-		str1 = sc.next();
-		parse_teacher(str1);
+		while(true)
+		parse_teacher();
 		
 	}
 	
-	 public static void parse_teacher(String input)throws IOException{
+	 public static void parse_teacher()throws IOException{
 
 		 
-		URL url = new URL("http://140.116.165.74/qry/qry001.php?dept_no=F7");
+		String input;
+		System.out.println("請輸入你要查詢的課程老師名稱:");
+		Scanner sc = new Scanner(System.in);
+		input = sc.next();
+		System.out.println("輸入資料查詢中，請稍後......");
+		 URL url = new URL("http://140.116.165.74/qry/qry001.php?dept_no=F7");
 		
 		Document doc = Jsoup.parse(url, 3000);  
 		Element jsElms = doc.select("table").get(0);  
@@ -32,6 +34,7 @@ public class OpenData {
 		
 		boolean find = false;
 		String mt = null;
+		
 		while(iter.hasNext())  
 		{  
 			mt = iter.next().text();
@@ -45,6 +48,7 @@ public class OpenData {
 		}
 		if(!find)
 			System.out.println("找不到與 "+mt+" 的相關資料");
+		System.out.println("-----------------");
 	}
 
 }
