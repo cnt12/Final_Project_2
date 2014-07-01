@@ -30,7 +30,7 @@ public class OpenData {
 		
 		//Scanner sc = new Scanner(System.in);
 		//input = sc.next();
-		System.out.println("輸入資料查詢中，請稍後......");
+		//System.out.println("輸入資料查詢中，請稍後......");
 		url = new URL(url_str);
 		
 		Document doc = Jsoup.parse(url, 3000);  
@@ -46,7 +46,7 @@ public class OpenData {
 			mt = iter.next().text();
 			//Iterator <Element> col = 
 			if(input.equals(mt)){
-				System.out.println("找到了"+mt);
+				//System.out.println("找到了"+mt);
 				for(int i=0;i<12;i++)
 				if(iter.hasPrevious()==true)iter.previous();
 				
@@ -88,26 +88,32 @@ public class OpenData {
 			if(opt.equals("SS")){
 				System.out.println("請輸入你要查詢的課程老師名稱:");
 				tea = sc.next();
+				System.out.println("輸入資料查詢中，請稍後......");
 				for(String str:SS_Courses){
 				String url_add = url_orig + str;
 				parse_teacher(url_add,tea);
 				}
+				System.out.println("搜索結束");
 			}else if(opt.equals("MS")){
 				System.out.println("請輸入你要查詢的課程老師名稱:");
 				tea = sc.next();
+				System.out.println("輸入資料查詢中，請稍後......");
 				for(String str:MS_Courses){
 				String url_add = url_orig + str;
 				parse_teacher(url_add,tea);
 				}
+				System.out.println("搜索結束");
 				
 			}else{
 				System.out.println("請輸入你要查詢的課程老師名稱:");
 				tea = sc.next();
+				System.out.println("輸入資料查詢中，請稍後......");
 				for(String str:EE_Courses){
 				String url_add = url_orig + str;
 				parse_teacher(url_add,tea);
 				//System.out.println(url_add+" "+tea);
-				}				
+				}	
+				System.out.println("搜索結束");
 				
 			}
 		
